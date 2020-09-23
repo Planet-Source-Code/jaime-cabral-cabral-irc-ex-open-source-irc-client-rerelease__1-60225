@@ -1,0 +1,72 @@
+        Case "322"
+            'Tree View Control
+            'frmChannels.ChannelView.Nodes.Add = strLine
+            
+            'seperate CHANNEL USERS :TOPIC
+            x = 0
+        If Left(strLine, 1) = "#" Then
+            ChannelCount = ChannelCount + 1
+            frmChannels.Caption = "Cabral Channel List [" & ChannelCount & "]"
+            For i = 1 To Len(strLine)
+                If Mid(strLine, i, 1) = Chr(32) Then
+                    x = x + 1
+                    Select Case x
+                        Case 1
+                            xChannelName = Mid(strLine, 1, i - 1)
+                        Case 2
+                            xUsers = Mid(strLine, 1, i - 1)
+                        Case 3
+                            xTopic = Mid(strLine, 1)
+                            Exit For
+                    End Select
+                    strLine = Mid(strLine, i + 1)
+                    i = 0
+                End If
+            Next i
+            'put in listview control (lvxChan control)
+            If Len(xChannelName) > 1 Then
+                Set frmChannels.lvwChan.SmallIcons = mdiMain.imgChannel
+                If IsNumeric(xUsers) Then
+                    If Int(xUsers) > 10 Then
+                        Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 1)
+                        mItem.SubItems(1) = xUsers
+                        mItem.SubItems(2) = Mid(xTopic, 2)
+                        frmChannels.Refresh
+                    Else
+                        Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 2)
+                        mItem.SubItems(1) = xUsers
+                        mItem.SubItems(2) = Mid(xTopic, 2)
+                        frmChannels.Refresh
+                    End If
+                End If
+            End If
+        End If
+            DoEvents
+
+
+
+
+/////////////////////////
+            'append to file channels.txt
+            CNumber = FreeFile
+            Open App.Path & "\channels.txt" For Append As #CNumber
+            'store channels in channel.txt
+            Print #CNumber, strLine
+            Close #CNumber
+//////////////////
+retrieve words:
+
+    'split the commands into seperate words
+    'ReDim Preserve statement is the KEY
+    If InStr(strData, Chr(32)) Then
+        Do Until InStr(strData, Chr(32)) = 0
+            x = InStr(strData, Chr(32))
+            If x Then
+                y = y + 1
+                ReDim Preserve word(y)
+                word(y) = Mid(strData, 1, x - 1)
+                strData = Mid(strData, x + 1)
+            End If
+        Loop
+        ReDim Preserve word(y + 1)
+        word(y + 1) = strData
