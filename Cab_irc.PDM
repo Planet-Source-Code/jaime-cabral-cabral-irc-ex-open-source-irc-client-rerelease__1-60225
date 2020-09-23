@@ -1,0 +1,121 @@
+[Root]
+Most Recent Package=Cab IRC Script
+
+
+[Package|Cab IRC Script|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=D:\vb2\circ\scripting\Package
+
+[Package|Cab IRC Script|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Cab IRC Script|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Cab IRC Script|Files Found]
+
+[Package|Cab IRC Script|Files Released]
+
+[Package|Cab IRC Script|Missing Dependency Information]
+C:\WINDOWS\SYSTEM\MSSCRIPT.OCX=
+
+[Package|Cab IRC Script|Out-of-Date Dependency Information]
+
+[Package|Cab IRC Script|Files Added]
+D:\vb2\circ\scripting\chanfolder.ini=
+D:\vb2\circ\scripting\servers.ini=
+D:\vb2\circ\scripting\irc.ini=
+D:\vb2\circ\scripting\notify.txt=
+
+[Package|Cab IRC Script|Files Removed]
+
+[Package|Cab IRC Script|Files In Project]
+D:\vb2\circ\scripting\cabIRC.exe=Yes
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\SYSTEM\COMCTL32.OCX=Yes
+C:\WINDOWS\SYSTEM\MSWINSCK.OCX=Yes
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=Yes
+C:\WINDOWS\SYSTEM\RICHTX32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\RICHED32.DLL=Yes
+C:\WINDOWS\SYSTEM\COMCT332.OCX=Yes
+C:\WINDOWS\SYSTEM\MSCOMCTL.OCX=Yes
+C:\WINDOWS\SYSTEM\MSSCRIPT.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+D:\vb2\circ\scripting\chanfolder.ini=Yes
+D:\vb2\circ\scripting\servers.ini=Yes
+D:\vb2\circ\scripting\irc.ini=Yes
+D:\vb2\circ\scripting\notify.txt=Yes
+
+[Package|Cab IRC Script|Configure Registry Files]
+Applicable=No
+
+[Package|Cab IRC Script|Configure Remote Servers]
+Applicable=No
+
+[Package|Cab IRC Script|Install Locations]
+D:\vb2\circ\scripting\cabIRC.exe=$(AppPath)
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\COMCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSWINSCK.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\RICHTX32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\RICHED32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\COMCT332.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSSCRIPT.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+D:\vb2\circ\scripting\chanfolder.ini=$(AppPath)
+D:\vb2\circ\scripting\servers.ini=$(AppPath)
+D:\vb2\circ\scripting\irc.ini=$(AppPath)
+D:\vb2\circ\scripting\notify.txt=$(AppPath)
+
+[Package|Cab IRC Script|Configure Shared Files]
+Applicable=Yes
+D:\vb2\circ\scripting\cabIRC.exe=No
+D:\vb2\circ\scripting\chanfolder.ini=No
+D:\vb2\circ\scripting\servers.ini=No
+D:\vb2\circ\scripting\irc.ini=No
+D:\vb2\circ\scripting\notify.txt=No
+
+[Package|Cab IRC Script|Distribution]
+Type=single
+Size=
+Title=Cabral IRC Client
+
+[Package|Cab IRC Script|Package]
+PackageFolder=D:\vb2\circ\scripting\Package
+ProjectFolder=D:\vb2\circ\scripting
+ServerSideCab=
+File1=D:\vb2\circ\scripting\Package\setup.exe
+File2=D:\vb2\circ\scripting\Package\Setup.Lst
+File3=D:\vb2\circ\scripting\Package\cabIRC.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Cab IRC Script|IconGroups]
+Group0=Cabral IRC Client
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Cab IRC Script|Cabral IRC Client]
+Icon1=cabIRC.exe
+Title1=Cabral IRC Client
+StartIn1=$(AppPath)
+Key1=Icon1

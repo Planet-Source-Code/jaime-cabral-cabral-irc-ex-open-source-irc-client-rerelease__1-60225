@@ -1,0 +1,124 @@
+            .FontColour = RGB(0, 0, i)
+            .FontBackColour = RGB(i, 0, 0)
+            Me.Caption = i & Not (Bold)
+            .InsertContents SF_TEXT, txtSend & vbCrLf
+///////////////
+
+<IFRAME ID=IFrame1 FRAMEBORDER=0 
+SCROLLING=NO SRC="http://www.planet-source-code.com/vb/LinkToUs/ScrollingCode.asp">
+Your browser does not support inline frames
+However, you can click 
+<A href="ScrollingCode.asp">here</a>
+to see the related document.
+</IFRAME>
+
+
+//////////////
+
+                For x = 1 To 3
+                    If IsNumeric(Mid(strTemp, x, 1)) Then
+                        ColorCode = ColorCode & Mid(strTemp, x, 1)
+                        strTemp = Mid(strTemp, x)
+                        strColor = Mid(strColor, x)
+                        MsgBox "Colorcode is " & ColorCode
+                        RTF.FontColour = color(ColorCode)
+                    Else
+                        MsgBox Mid(strTemp, x, 1) & " is not numeric"
+                        strColor = Mid(strColor, x - 1)
+                        ColorCode = ""
+                        Exit For
+                    End If
+                Next x
+/////////////
+
+
+    For i = 1 To Len(strColor)
+        'find the start of color code
+        If strColor = "" Then Exit For
+        If Mid(strColor, i, 1) = "" Then
+            'if it's another color Kode then just delete it and move on
+            If Mid(strColor, 2, 1) = "" Then
+                strColor = "" & Mid(strColor, 3)
+                i = i - 1
+            End If
+            'get first number in color code
+            If IsNumeric(Mid(strColor, 2, 1)) Then
+                ColorCode = Mid(strColor, 2, 1)
+                ColorFound = True
+                If IsNumeric(Mid(strColor, 3, 1)) Then
+                    ColorCode = ColorCode & Mid(strColor, i + 2, 1)
+                    
+                    'loop until colorcode less than 15
+                    Do Until ColorCode < 16
+                        If ColorCode > 15 Then
+                            ColorCode = ColorCode - 15
+                        End If
+                    Loop
+                    
+                    RTF.FontColour = color(ColorCode)
+                    strColor = Mid(strColor, 4)
+                    ColorFound = False
+                Else
+                    'if not a second digit
+                    RTF.FontColour = color(ColorCode)
+                    strColor = Mid(strColor, 2)
+                End If
+            Else
+                'No Color code after initial color code
+                RTF.FontColour = color(1)
+                strColor = Mid(strColor, 2)
+            End If
+        Else
+            If Mid(strColor, i, 1) = "" Then
+                RTF.FontBold = Not (BoldFound)
+                strColor = Mid(strColor, 2)
+                BoldFound = Not (BoldFound)
+                RTF.InsertContents SF_TEXT, Mid(strColor, 1, 1)
+            Else
+                'write the normal text to rtf box
+                If ColorFound Then
+                    ColorFound = False
+                Else
+                    RTF.InsertContents SF_TEXT, Mid(strColor, 1, 1)
+                    ColorFound = False
+                End If
+            End If
+            strColor = Mid(strColor, 2)
+            i = 0
+            'DoEvents
+        End If
+    Next i
+    RTF.FontBold = False
+    RTF.FontColour = vbBlack
+    RTF.InsertContents SF_TEXT, vbCrLf
+//////////
+
+TOOLBAR
+
+
+Private Sub cReBar1_ChevronPushed(ByVal wID As Long, ByVal lLeft As Long, ByVal lTop As Long, ByVal lRight As Long, ByVal lBottom As Long)
+   frmMessages.Indicate "Chevron Pushed " & wID
+End Sub
+
+Private Sub cReBar1_HeightChanged(lNewHeight As Long)
+   frmMessages.Indicate "Rebar HeightChanged " & lNewHeight
+   picHolder.Height = lNewHeight * Screen.TwipsPerPixelY
+End Sub
+
+Private Sub cToolbar1_ButtonClick(ByVal lButton As Long)
+   frmMessages.Indicate "Toolbar1 ButtonClick:" & vbTab & CStr(lButton) & ",Pressed=" & cToolbar1.ButtonPressed(lButton) & ",Checked=" & cToolbar1.ButtonChecked(lButton)
+   If (lButton = 0) Then
+      Dim fM As New frmMessages
+      fM.Show
+   End If
+End Sub
+
+Private Sub cToolbar1_DropDownPress(ByVal lButton As Long)
+Dim x As Long, y As Long
+   frmMessages.Indicate "Toolbar1 DropDownPress:" & vbTab & CStr(lButton)
+   cToolbar1.GetDropDownPosition lButton, x, y
+   y = y - picHolder.Height - 2 * Screen.TwipsPerPixelY
+   Me.PopupMenu mnuFileTOP, , x, y
+
+End Sub
+//////////

@@ -1,0 +1,108 @@
+        Case "322"
+        
+
+            'add to channel list box
+            'Tree View Control
+            'frmChannels.ChannelView.Nodes.Add = strLine
+            
+            'seperate CHANNEL USERS :TOPIC
+            'put in listview control (lvxChan control)
+            word = Split(strLine, " ")
+            xChannelName = word(0)
+            xUsers = word(1)
+            For i = 2 To UBound(word)
+                xTopic = xTopic & word(i) & " "
+            Next i
+            
+            Set frmChannels.lvwChan.SmallIcons = mdiMain.imgChannel
+            'this will display different icons in the channel list
+
+                If InStr(LCase(xChannelName), "help") > 1 Then
+                    Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 2)
+                    'Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName)
+                    mItem.SubItems(1) = xUsers
+                    mItem.SubItems(2) = xTopic
+                    'frmChannels.Refresh
+                Else
+                    If InStr(LCase(xChannelName), "cafe") > 1 Then
+                        Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 3)
+                        'Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName)
+                        mItem.SubItems(1) = xUsers
+                        mItem.SubItems(2) = xTopic
+                        'frmChannels.Refresh
+                    Else
+                        If InStr(LCase(xChannelName), "sex") > 1 Then
+                            Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 4)
+                            'Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName)
+                            mItem.SubItems(1) = xUsers
+                            mItem.SubItems(2) = xTopic
+                            'frmChannels.Refresh
+                        Else
+                            If InStr(LCase(xChannelName), "chat") > 1 Then
+                                Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 5)
+                                'Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName)
+                                mItem.SubItems(1) = xUsers
+                                mItem.SubItems(2) = xTopic
+                                'frmChannels.Refresh
+                            Else
+                                If InStr(LCase(xChannelName), "mac") > 1 Then
+                                    Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 6)
+                                    'Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName)
+                                    mItem.SubItems(1) = xUsers
+                                    mItem.SubItems(2) = xTopic
+                                    'frmChannels.Refresh
+                                Else
+                                    If InStr(LCase(xChannelName), "apple") > 1 Then
+                                        Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 7)
+                                        'Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName)
+                                        mItem.SubItems(1) = xUsers
+                                        mItem.SubItems(2) = xTopic
+                                        'frmChannels.Refresh
+                                    Else
+                                        If InStr(LCase(xChannelName), "bot") > 1 Then
+                                            Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 8)
+                                            'Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName)
+                                            mItem.SubItems(1) = xUsers
+                                            mItem.SubItems(2) = xTopic
+                                            'frmChannels.Refresh
+                                        Else
+                                            If InStr(LCase(xChannelName), "prog") > 1 Then
+                                                Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 9)
+                                                'Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName)
+                                                mItem.SubItems(1) = xUsers
+                                                mItem.SubItems(2) = xTopic
+                                                'frmChannels.Refresh
+                                            Else
+                                                If Trim(LCase(xChannelName)) = LCase("*") Then
+                                                    Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 10)
+                                                    'Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName)
+                                                    mItem.SubItems(1) = xUsers
+                                                    mItem.SubItems(2) = xTopic
+                                                    'frmChannels.Refresh
+                                                Else
+                                                    If InStr(LCase(xChannelName), "world") > 1 Then
+                                                        Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 13)
+                                                        'Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName)
+                                                        mItem.SubItems(1) = xUsers
+                                                        mItem.SubItems(2) = xTopic
+                                                        'frmChannels.Refresh
+
+                            Else
+                                  Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName, , 12)
+                                'Set mItem = frmChannels.lvwChan.ListItems.Add(, , xChannelName)
+                                mItem.SubItems(1) = xUsers
+                                mItem.SubItems(2) = xTopic
+                                'frmChannels.Refresh
+                                                    End If
+                                                End If
+                                            End If
+                                        End If
+                                    End If
+                                End If
+                            End If
+                        End If
+                    End If
+                End If
+            ChannelCount = ChannelCount + 1
+            frmChannels.Caption = "Cabral Channel list [" & ChannelCount & "]"
+
